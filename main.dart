@@ -1,42 +1,96 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(
-    home: Home()
-));
+void main() {
+  runApp(MaterialApp(
+    home: NinjaCard()
+  ));
+}
 
-class Home extends StatelessWidget {
+class NinjaCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('my first app'),
-          centerTitle: true,
-          backgroundColor: Colors.red,
-        ),
-        body: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      backgroundColor: Colors.grey[900],
+      appBar: AppBar(
+        title: Text('Ninja ID Card'),
+        centerTitle: true,
+        backgroundColor: Colors.grey[850],
+        elevation: 0.0,
+      ),
+      body: Padding(
+        padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text("hello world"),
-            FlatButton(
-              onPressed: (){},
-              color: Colors.amber,
-              child: Text('click me')
+            Center(
+              child: CircleAvatar(
+                backgroundImage: AssetImage('assets/luna-star.jpg'),
+                radius: 100,
+              ),
             ),
-            Container(
-              color: Colors.cyan,
-              padding: EdgeInsets.all(30.0),
-              child: Text('inside container'),
+            Divider(
+              height: 90.0,
+              color: Colors.grey[800],
+            ),
+            Text(
+                'NAME',
+              style: TextStyle(
+                color: Colors.grey,
+                letterSpacing: 2.0,
+              )
+            ),
+            SizedBox(height: 10),
+            Text(
+                'Chun-Li',
+                style: TextStyle(
+                  color: Colors.amber[200],
+                  letterSpacing: 2.0,
+                  fontSize: 28.0,
+                  fontWeight: FontWeight.bold
+                )
+            ),
+            SizedBox(height: 30),
+            Text(
+                'CURRENT NINJA LEVEL',
+                style: TextStyle(
+                  color: Colors.grey,
+                  letterSpacing: 2.0,
+                )
+            ),
+            SizedBox(height: 10),
+            Text(
+                '9',
+                style: TextStyle(
+                    color: Colors.amber[200],
+                    letterSpacing: 2.0,
+                    fontSize: 28.0,
+                    fontWeight: FontWeight.bold
+                )
+            ),
+            SizedBox(height: 30),
+            Row(
+              children: [
+                Icon(
+                  Icons.email,
+                    color: Colors.grey
+                ),
+                SizedBox(width: 10),
+                Text(
+                  'chan_goonetilleke@outlook.com',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 15.0,
+                    letterSpacing: 1.0,
+                  ),
+                )
+              ],
             )
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: Text('fuc'),
-          backgroundColor: Colors.red,
-        )
+      ),
+
     );
   }
 }
+
 
